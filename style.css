@@ -1,0 +1,98 @@
+/* global */
+
+html, body, * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif
+}
+
+.page-wrapper {
+    max-width: 58em;
+    margin: auto;
+    padding: 1em
+}
+
+/* defaults */
+
+section {
+    padding: 1em 0
+}
+
+section > h1,
+.filter-buttons {
+    text-align: center
+}
+
+section > h1 {
+    text-transform: uppercase;
+    padding: .5em 0
+}
+
+.filter-buttons div,
+.filter-buttons label {
+    display: inline-block
+}
+
+.filter-buttons label {
+    margin: .3em 0;
+    padding: .5em 1em;
+    border: 1px solid;
+    border-radius: .5em;
+    cursor: pointer
+}
+
+.filter-buttons .reset {
+    padding: .2em .5em;
+    font-size: .8em
+}
+
+article {
+    padding: .5em
+}
+
+article > * {
+    margin: .3em 0;
+    padding: .5em
+}
+
+article > p {
+    will-change: opacity, background-color;
+    transition: opacity 500ms ease-in-out,
+    background-color 500ms ease-in-out
+}
+
+.filter-container > input {
+    display: none
+}
+
+/* events */
+
+input:checked ~ article p {
+    opacity: .1
+}
+
+#filter-one-reset:checked ~ article p {
+    opacity: 1
+}
+
+#filter-one-1:checked ~ .filter-buttons > label:nth-of-type(1),
+#filter-one-2:checked ~ .filter-buttons > label:nth-of-type(2),
+#filter-one-3:checked ~ .filter-buttons > label:nth-of-type(3),
+#filter-one-4:checked ~ .filter-buttons > label:nth-of-type(4) {
+    background-color: #a4dd9e
+}
+
+#filter-one-reset:checked ~ .filter-buttons div label {
+    background-color: #a7b9dd
+}
+
+
+/*  SEARCH VALUES */
+
+#filter-one-1:checked ~ article p[data-content*="notable"],
+#filter-one-2:checked ~ article p[data-content*="commission"],
+#filter-one-3:checked ~ article p[data-content*="to"],
+#filter-one-4:checked ~ article p[data-content*="she"] {
+    background-color: #fffebb;
+    opacity: 1
+}
